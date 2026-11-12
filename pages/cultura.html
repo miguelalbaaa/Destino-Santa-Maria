@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F8F6F0">
+  <title>Cultura y tradiciones | Destino Santa María</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/main.js" defer></script>
+  <style>
+    .culture-page { overflow-x: clip; }
+    .culture-hero { display:flex; align-items:flex-end; min-height:min(62vh, 620px); min-height:min(62svh, 620px); padding:9rem clamp(1.5rem, 10vw, 9rem) 5rem; color:var(--paper); background:linear-gradient(90deg, rgb(25 20 17 / 58%), rgb(25 20 17 / 22%) 68%, rgb(25 20 17 / 5%)), url("../assets/img/cultura/hero-cultura.jpg"); background-position:center; background-size:cover; }
+    .culture-hero__content { width:min(100%, 850px); }
+    .culture-hero__eyebrow, .culture-kicker { margin:0 0 .9rem; color:var(--terracotta); font-size:.67rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; }
+    .culture-hero__eyebrow { color:var(--sand); }
+    .culture-hero__title { margin:0; font:500 clamp(3rem, 6.5vw, 5.8rem)/1.06 "Playfair Display", Georgia, serif; letter-spacing:-.04em; text-wrap:balance; }
+    .culture-hero__subtitle { max-width:680px; margin:1.35rem 0 0; color:rgb(248 246 240 / 88%); font-size:clamp(1rem, 1.5vw, 1.12rem); line-height:1.8; }
+    .culture-section { padding:clamp(4.5rem, 8vw, 7rem) clamp(1.4rem, 8vw, 7rem); }
+    .culture-section__inner { width:min(100%, 1280px); margin-inline:auto; }
+    .culture-title { max-width:780px; margin:0; color:var(--ink); font:500 clamp(2.4rem, 4.6vw, 4.2rem)/1.12 "Playfair Display", Georgia, serif; letter-spacing:-.035em; text-wrap:balance; }
+    .culture-intro { background:var(--paper); }
+    .culture-intro__layout { display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); align-items:center; gap:clamp(2rem, 7vw, 7rem); }
+    .culture-festivals { background:var(--sand); }
+    .culture-pachamama { color:var(--paper); background:var(--olive); }
+    .culture-pachamama .culture-title { color:var(--paper); }
+    .culture-pachamama .culture-kicker { color:var(--sand); }
+    .culture-editorial__layout { display:grid; grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr); align-items:center; gap:clamp(2rem, 7vw, 7rem); }
+    .culture-editorial--reverse .culture-editorial__layout { grid-template-columns:minmax(0, 1.1fr) minmax(0, .9fr); }
+    .culture-editorial__copy { max-width:540px; }
+    .culture-photo { min-width:0; min-height:0; margin:0; overflow:hidden; background:linear-gradient(145deg, rgb(48 37 31 / 4%), rgb(48 37 31 / 10%)), var(--sand); }
+    .culture-photo--wide { aspect-ratio:1.25 / 1; }
+    .culture-photo--portrait { aspect-ratio:.9 / 1; }
+    .culture-photo--landscape { aspect-ratio:1.55 / 1; }
+    .culture-photo img { display:block; width:100%; height:100%; min-height:inherit; object-fit:cover; }
+    .culture-festivals__heading { margin-bottom:clamp(2rem, 4vw, 3.5rem); }
+    .culture-festivals__grid { display:grid; grid-template-columns:minmax(0, 1fr); gap:1rem; }
+    .culture-festivals__grid .culture-photo { width:min(100%, 1040px); aspect-ratio:1.7 / 1; }
+    .culture-crafts { background:var(--paper); }
+    .culture-crafts__layout { display:grid; grid-template-columns:minmax(0, 1.1fr) minmax(0, .9fr); align-items:center; gap:clamp(2rem, 6vw, 6rem); }
+    .culture-crafts__visuals { display:grid; grid-template-columns:minmax(0, .85fr); gap:1rem; align-items:center; justify-content:center; }
+    .culture-crafts__visuals .culture-photo:first-child { aspect-ratio:.9 / 1; }
+    .culture-music { background:var(--sand); }
+    .culture-current { color:var(--paper); background:var(--ink); }
+    .culture-current .culture-title { color:var(--paper); }
+    .culture-current .culture-kicker { color:var(--sand); }
+    .culture-current__layout { display:grid; grid-template-columns:minmax(0, .85fr) minmax(0, 1.15fr); align-items:center; gap:clamp(2rem, 7vw, 7rem); }
+    .culture-close { padding:clamp(4rem, 7vw, 6rem) 1.5rem; color:var(--paper); background:var(--terracotta); text-align:center; }
+    .culture-close__inner { width:min(100%, 760px); margin-inline:auto; }
+    .culture-close__title { margin:0; font:500 clamp(2.3rem, 4.8vw, 4rem)/1.12 "Playfair Display", Georgia, serif; text-wrap:balance; }
+    .culture-close__link { display:inline-flex; align-items:center; gap:.9rem; margin-top:1.6rem; padding:.95rem 1.2rem; color:var(--ink); background:var(--paper); font-size:.76rem; font-weight:600; text-decoration:none; transition:gap 180ms ease, background-color 180ms ease; }
+    .culture-close__link:hover { gap:1.2rem; background:var(--sand); }
+    @media (max-width: 820px) {
+      .culture-editorial__layout, .culture-editorial--reverse .culture-editorial__layout, .culture-intro__layout, .culture-crafts__layout, .culture-current__layout { grid-template-columns:1fr; gap:2rem; }
+      .culture-photo--wide, .culture-photo--landscape, .culture-crafts__visuals .culture-photo:first-child { aspect-ratio:1.55 / 1; }
+    }
+    @media (max-width: 640px) {
+      .culture-hero { min-height:58svh; padding:8rem 1.4rem 4rem; }
+      .culture-hero__title { font-size:clamp(2.8rem, 12vw, 4.2rem); }
+      .culture-section { padding:4.5rem 1.4rem; }
+      .culture-editorial__layout, .culture-editorial--reverse .culture-editorial__layout, .culture-intro__layout, .culture-crafts__layout, .culture-current__layout { grid-template-columns:1fr; }
+      .culture-editorial--reverse .culture-editorial__visual { order:2; }
+      .culture-photo { min-height:0; }
+      .culture-photo--wide, .culture-photo--landscape { aspect-ratio:1.15 / 1; }
+      .culture-photo--portrait { aspect-ratio:1.1 / 1; }
+      .culture-festivals__grid { grid-template-columns:1fr; }
+      .culture-festivals__grid .culture-photo, .culture-festivals__grid .culture-photo:last-child { grid-column:auto; aspect-ratio:1.2 / 1; }
+      .culture-crafts__visuals .culture-photo:first-child { aspect-ratio:.95 / 1; }
+    }
+  </style>
+</head>
+<body class="culture-page">
+  <header class="site-header" data-site-header>
+    <a class="site-header__brand" href="../index.html" aria-label="Destino Santa María, inicio"><img src="../assets/logo/logo-destino-horizontal-claro.png" alt="Destino Santa María"></a>
+    <button class="site-header__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle><span></span><span></span><span></span></button>
+    <nav class="site-header__nav" id="site-navigation" aria-label="Navegación principal" data-site-navigation>
+      <a href="../index.html">Inicio</a><a href="historia.html">Historia</a><a href="destinos.html">Destinos</a><a href="cultura.html" aria-current="page">Cultura</a><a href="gastronomia.html">Gastronomía</a><a href="experiencias.html">Experiencias</a><a href="guia-turistica.html">Guía turística</a><a class="site-header__cta" href="destinos.html">Explorar <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="culture-hero" aria-labelledby="culture-hero-title">
+      <div class="culture-hero__content">
+        <p class="culture-hero__eyebrow">Cultura · Santa María</p>
+        <h1 class="culture-hero__title" id="culture-hero-title">La cultura que nos identifica</h1>
+        <p class="culture-hero__subtitle">Tradiciones, celebraciones y expresiones que forman parte del alma de Santa María</p>
+      </div>
+    </section>
+
+    <section class="culture-section culture-intro" aria-labelledby="culture-intro-title">
+      <div class="culture-section__inner culture-intro__layout">
+        <div>
+          <p class="culture-kicker">Identidad cultural</p>
+          <h2 class="culture-title" id="culture-intro-title">Una identidad construida a través del tiempo.</h2>
+          <p>Santa María conserva una identidad profundamente ligada a la historia del Valle de Yokavil. Sus raíces ancestrales, el legado de los pueblos originarios y las tradiciones transmitidas entre generaciones forman parte de una cultura que continúa presente en la vida cotidiana.</p>
+          <p>La música, las celebraciones populares, las artesanías y los sabores regionales expresan el vínculo de su gente con la tierra y sus costumbres. Una identidad que se mantiene viva y se comparte con quienes llegan a descubrir este rincón de Catamarca.</p>
+        </div>
+        <figure class="culture-photo culture-photo--wide"><img src="../assets/img/cultura/identidad-cultural.jpg" alt="Expresión de la identidad cultural de Santa María" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <section class="culture-section culture-festivals" aria-labelledby="culture-festivals-title">
+      <div class="culture-section__inner">
+        <div class="culture-festivals__heading">
+          <p class="culture-kicker">Encuentros y comunidad</p>
+          <h2 class="culture-title" id="culture-festivals-title">Celebraciones que reúnen a todo un pueblo.</h2>
+          <p>A lo largo del año, Santa María celebra su identidad a través de festivales y encuentros populares que convocan a vecinos y visitantes. La música, las danzas, las expresiones artísticas y las costumbres regionales se convierten en protagonistas de estas celebraciones.</p>
+          <p>Entre sus encuentros más representativos se encuentra la Fiesta Nacional Santa María la Reina del Yokavil, cuyo primer festival se realizó en enero de 1968. También se destacan la Fiesta de la Capia, celebrada durante el invierno, y el Festival de la Arropiada, en Fuerte Quemado, donde se mantienen tradiciones vinculadas a la elaboración del arrope de uva.</p>
+        </div>
+        <div class="culture-festivals__grid" aria-label="Espacios para fotografías de festividades locales">
+          <figure class="culture-photo culture-photo--festivities"><img src="../assets/img/cultura/festividades.jpg" alt="Festividades y celebraciones de Santa María" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="culture-section culture-pachamama" aria-labelledby="culture-pachamama-title">
+      <div class="culture-section__inner culture-editorial__layout">
+        <div class="culture-editorial__copy">
+          <p class="culture-kicker">Territorio y tradición</p>
+          <h2 class="culture-title" id="culture-pachamama-title">Una relación profunda con la Madre Tierra.</h2>
+          <p>La Pachamama ocupa un lugar significativo en la cosmovisión de los pueblos andinos. Representa a la Madre Tierra y expresa una relación de respeto, agradecimiento y reciprocidad con la naturaleza.</p>
+          <p>En Santa María, esta herencia cultural forma parte de la identidad del territorio. Las prácticas y ceremonias vinculadas a la Pachamama mantienen presente una forma ancestral de comprender la tierra como fuente de vida, alimento y sustento.</p>
+          <p>Su significado trasciende una celebración: representa un vínculo cultural y espiritual que continúa transmitiéndose entre generaciones.</p>
+        </div>
+        <figure class="culture-photo culture-photo--wide culture-editorial__visual"><img src="../assets/img/cultura/pachamama.jpg" alt="Tradición de la Pachamama" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <section class="culture-section culture-crafts" aria-labelledby="culture-crafts-title">
+      <div class="culture-section__inner culture-crafts__layout">
+        <div class="culture-crafts__visuals" aria-label="Espacios para fotografías de cerámica y tejidos locales">
+          <figure class="culture-photo"><img src="../assets/img/cultura/artesanias.jpg" alt="Artesanías locales de Santa María" loading="lazy"></figure>
+        </div>
+        <div>
+          <p class="culture-kicker">Oficios y creación</p>
+          <h2 class="culture-title" id="culture-crafts-title">Saberes que se transforman en arte.</h2>
+          <p>El trabajo artesanal es una de las expresiones más representativas de la cultura santamariana. A través del tejido, el hilado y otras técnicas tradicionales, los artesanos transforman materias primas locales en piezas que reflejan la identidad del valle.</p>
+          <p>Entre estas expresiones se destaca el poncho santamariano, también conocido como poncho andariego, elaborado por las integrantes de la cooperativa textil Tinku Kamayu. Sus colores, inspirados en el paisaje y la identidad local, lo convierten en una pieza distintiva de Santa María.</p>
+          <p>Cada creación representa el conocimiento, la dedicación y la continuidad de los oficios artesanales.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="culture-section culture-music" aria-labelledby="culture-music-title">
+      <div class="culture-section__inner culture-editorial__layout">
+        <div class="culture-editorial__copy">
+          <p class="culture-kicker">Expresiones folklóricas</p>
+          <h2 class="culture-title" id="culture-music-title">El folklore como expresión de nuestra identidad.</h2>
+          <p>La música folklórica ocupa un lugar importante en la vida cultural de Santa María. Sus canciones, encuentros y celebraciones mantienen vivo un patrimonio musical que forma parte de la identidad del Valle de Yokavil.</p>
+          <p>En festivales y reuniones populares, el canto y la danza acompañan a distintas generaciones, creando espacios de encuentro y transmisión cultural.</p>
+          <p>La tradición folklórica también se refleja en artistas y referentes que llevaron la música de esta tierra a otros lugares, contribuyendo a difundir la cultura santamariana.</p>
+        </div>
+        <figure class="culture-photo culture-photo--landscape culture-editorial__visual"><img src="../assets/img/cultura/musica-danzas.jpg" alt="Música y danzas de Santa María" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <section class="culture-section culture-current" aria-labelledby="culture-current-title">
+      <div class="culture-section__inner culture-current__layout">
+        <div>
+          <p class="culture-kicker">Vida cultural</p>
+          <h2 class="culture-title" id="culture-current-title">Costumbres que siguen formando parte de nuestra vida.</h2>
+          <p>Las tradiciones de Santa María no pertenecen solamente al pasado: continúan presentes en sus talleres, ferias, celebraciones y actividades productivas. En cada oficio y encuentro comunitario se mantienen conocimientos que forman parte de la identidad local.</p>
+          <p>La elaboración artesanal de capias, el trabajo de las tejedoras, la producción regional y las reuniones populares son ejemplos de cómo las costumbres se adaptan al presente sin perder sus raíces.</p>
+          <p>Son estas prácticas cotidianas, sostenidas por su gente, las que mantienen viva la esencia cultural de Santa María.</p>
+        </div>
+        <figure class="culture-photo culture-photo--landscape"><img src="../assets/img/cultura/tradiciones-actuales.jpg" alt="Tradiciones actuales de la comunidad de Santa María" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <section class="culture-close" aria-labelledby="culture-close-title">
+      <div class="culture-close__inner">
+        <h2 class="culture-close__title" id="culture-close-title">Seguí descubriendo Santa María</h2>
+        <a class="culture-close__link" href="experiencias.html">Explorá nuestras experiencias <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__main">
+        <div class="site-footer__identity">
+          <a class="site-footer__brand" href="../index.html" aria-label="Destino Santa María, inicio"><img src="../assets/logo/logo-destino-horizontal-claro.png" alt="Destino Santa María"></a>
+          <p class="site-footer__name">Destino Santa María</p>
+          <p class="site-footer__tagline">Historias, paisajes y experiencias por descubrir</p>
+        </div>
+        <nav class="site-footer__navigation" aria-label="Explorá">
+          <h2 class="site-footer__heading">Explorá</h2>
+          <ul><li><a href="../index.html">Inicio</a></li><li><a href="historia.html">Historia</a></li><li><a href="destinos.html">Destinos</a></li><li><a href="cultura.html" aria-current="page">Cultura</a></li></ul>
+        </nav>
+        <nav class="site-footer__navigation" aria-label="Descubrí">
+          <h2 class="site-footer__heading">Descubrí</h2>
+          <ul><li><a href="gastronomia.html">Gastronomía</a></li><li><a href="experiencias.html">Experiencias</a></li><li><a href="guia-turistica.html">Guía turística</a></li><li><a href="galeria.html">Galería</a></li></ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom"><p>© 2026 Destino Santa María. Todos los derechos reservados</p><p>Santa María, Catamarca <span aria-hidden="true">·</span> Argentina</p></div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F8F6F0">
+  <title>Destino Santa María</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/img/inicio/hero-santa-maria.jpg">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/home.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body class="home-page">
+  <header class="site-header" data-site-header>
+    <a class="site-header__brand" href="index.html" aria-label="Destino Santa María, inicio">
+      <img src="assets/logo/logo-destino-horizontal-claro.png" alt="Destino Santa María">
+    </a>
+
+    <button class="site-header__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle>
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="site-header__nav" id="site-navigation" aria-label="Navegación principal" data-site-navigation>
+      <a href="index.html">Inicio</a>
+      <a href="pages/historia.html">Historia</a>
+      <a href="pages/destinos.html">Destinos</a>
+      <a href="pages/cultura.html">Cultura</a>
+      <a href="pages/gastronomia.html">Gastronomía</a>
+      <a href="pages/experiencias.html">Experiencias</a>
+      <a href="pages/guia-turistica.html">Guía turística</a>
+      <a class="site-header__cta" href="pages/destinos.html">Explorar <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero home-hero" aria-labelledby="hero-title">
+      <div class="hero__content home-hero__content">
+        <p class="home-hero__eyebrow">Santa María <span aria-hidden="true">·</span> Catamarca, Argentina</p>
+        <h1 class="hero__title home-hero__title" id="hero-title">Hay lugares que se descubren. <span>Otros se sienten.</span></h1>
+        <p class="hero__description home-hero__description">Entre montañas, historia y cultura, descubrí la esencia de Santa María, Catamarca.</p>
+        <a class="hero__button home-hero__button" href="pages/destinos.html">Explorar destino <span aria-hidden="true">↗</span></a>
+      </div>
+      <a class="hero__discover" href="#siguiente-seccion" aria-label="Descubrí Santa María y continúa a la siguiente sección">
+        <span>Descubrí Santa María</span>
+        <span class="hero__discover-mark" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <section class="about-section home-intro" id="siguiente-seccion" aria-labelledby="about-title" data-reveal>
+      <div class="about-section__inner home-intro__inner">
+        <div class="home-intro__heading">
+          <p class="about-section__eyebrow">Catamarca <span aria-hidden="true">·</span> Argentina</p>
+          <h2 class="about-section__title" id="about-title">Un lugar donde la historia y la naturaleza se encuentran</h2>
+        </div>
+        <figure class="about-section__image home-intro__image">
+          <img src="assets/img/inicio/conoce-santa-maria.jpg" alt="Feria local bajo los árboles en Santa María" width="1600" height="1200" loading="lazy" data-parallax>
+        </figure>
+        <div class="about-section__copy home-intro__copy">
+          <p class="about-section__paragraph">En el corazón de los Valles Calchaquíes, Santa María invita a descubrir un territorio donde los paisajes, las tradiciones y la historia forman parte de una identidad única.</p>
+          <p class="about-section__paragraph">Un destino para recorrer sin apuros, conocer sus raíces y disfrutar de la riqueza natural y cultural de Catamarca.</p>
+          <a class="about-section__button" href="pages/historia.html">Descubrí nuestra historia <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="home-intro__note"><span>01</span> Un viaje al ritmo del valle</p>
+      </div>
+    </section>
+
+    <section class="featured-destinations home-destinations" id="destinos-destacados" aria-labelledby="featured-destinations-title">
+      <div class="featured-destinations__inner">
+        <header class="featured-destinations__heading home-section-heading">
+          <p class="featured-destinations__eyebrow">Lugares para descubrir <span aria-hidden="true">/</span> 02</p>
+          <h2 class="featured-destinations__title" id="featured-destinations-title">Destinos destacados</h2>
+          <a class="home-heading-link" href="pages/destinos.html">Ver todos los destinos <span aria-hidden="true">↗</span></a>
+        </header>
+        <div class="featured-destinations__grid home-destinations__grid">
+          <article class="destination-card home-destination home-destination--siete">
+            <a class="destination-card__visual" href="pages/destinos.html" aria-label="Descubrir el Cerro de los Siete Colores">
+              <img src="assets/img/destinos/cerros-colores.jpg" alt="Formaciones de colores del Cerro de los Siete Colores" width="399" height="501" loading="lazy">
+              <span class="home-destination__shade" aria-hidden="true"></span>
+              <div class="home-destination__content"><span class="home-destination__index">01 <span aria-hidden="true">/</span> PAISAJE</span><h3 class="destination-card__title">Cerro de los Siete Colores</h3><span class="destination-card__description">Capas de color y formas naturales que revelan la fuerza del paisaje calchaquí.</span><span class="home-destination__link">Descubrir <span aria-hidden="true">↗</span></span></div>
+            </a>
+          </article>
+          <article class="destination-card home-destination home-destination--fuerte">
+            <a class="destination-card__visual" href="pages/destinos.html" aria-label="Descubrir Fuerte Quemado">
+              <img src="assets/img/destinos/fuerte-quemado.jpg" alt="Paisaje y sitio arqueológico de Fuerte Quemado" width="1200" height="675" loading="lazy">
+              <span class="home-destination__shade" aria-hidden="true"></span>
+              <div class="home-destination__content"><span class="home-destination__index">02 <span aria-hidden="true">/</span> HISTORIA</span><h3 class="destination-card__title">Fuerte Quemado</h3><span class="destination-card__description">Un sitio arqueológico entre cerros, con huellas de las antiguas culturas de la región.</span><span class="home-destination__link">Descubrir <span aria-hidden="true">↗</span></span></div>
+            </a>
+          </article>
+          <article class="destination-card home-destination home-destination--ciudad">
+            <a class="destination-card__visual" href="pages/destinos.html" aria-label="Descubrir la ciudad de Santa María">
+              <img src="assets/img/destinos/ciudad-santa-maria.jpg" alt="Vista de la ciudad de Santa María, Catamarca" width="554" height="554" loading="lazy">
+              <span class="home-destination__shade" aria-hidden="true"></span>
+              <div class="home-destination__content"><span class="home-destination__index">03 <span aria-hidden="true">/</span> CIUDAD</span><h3 class="destination-card__title">Ciudad de Santa María</h3><span class="destination-card__description">Un punto de encuentro para conocer la vida local, sus sabores y su historia vallista.</span><span class="home-destination__link">Descubrir <span aria-hidden="true">↗</span></span></div>
+            </a>
+          </article>
+          <article class="destination-card home-destination home-destination--ruinas">
+            <a class="destination-card__visual" href="pages/destinos.html" aria-label="Descubrir las Ruinas de Quilmes, en Tucumán">
+              <img src="assets/img/destinos/ruinas-quilmes.jpg" alt="Ruinas de Quilmes en los Valles Calchaquíes de Tucumán" width="1280" height="960" loading="lazy">
+              <span class="home-destination__shade" aria-hidden="true"></span>
+              <div class="home-destination__content"><span class="home-destination__index">04 <span aria-hidden="true">/</span> ARQUEOLOGÍA</span><h3 class="destination-card__title">Ruinas de Quilmes</h3><span class="destination-card__description">En Tucumán, este destacado sitio arqueológico es un atractivo regional cercano a Santa María.</span><span class="home-destination__link">Descubrir <span aria-hidden="true">↗</span></span></div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience-highlights home-experiences" id="experiencias" aria-labelledby="experience-highlights-title">
+      <div class="experience-highlights__inner">
+        <header class="experience-highlights__heading home-section-heading">
+          <p class="experience-highlights__eyebrow">Viví el destino <span aria-hidden="true">/</span> 03</p>
+          <h2 class="experience-highlights__title" id="experience-highlights-title">Experiencias para vivir Santa María</h2>
+          <p class="home-experiences__intro">Un territorio para recorrer con tiempo, mirar de cerca y dejarse sorprender.</p>
+        </header>
+        <figure class="home-experiences__visual">
+          <img src="assets/img/experiencias/experiencia-gastronomia.jpg" alt="Visitantes recorren un cultivo del Valle de Yokavil" width="3000" height="1500" loading="lazy" data-parallax>
+          <figcaption><span>Valle de Yokavil</span><span>Recorridos que se viven</span></figcaption>
+        </figure>
+        <div class="home-experiences__index" aria-label="Explorá experiencias">
+          <a class="home-experiences__item" href="pages/experiencias.html"><span class="home-experiences__number">01</span><span class="home-experiences__item-copy"><span class="home-experiences__title">Naturaleza y aventura</span><span class="home-experiences__description">Descubrí paisajes, montañas y rincones naturales de la región.</span></span><span class="home-experiences__arrow" aria-hidden="true">↗</span></a>
+          <a class="home-experiences__item" href="pages/historia.html"><span class="home-experiences__number">02</span><span class="home-experiences__item-copy"><span class="home-experiences__title">Historia y arqueología</span><span class="home-experiences__description">Acercate a las huellas de los pueblos que habitaron estos territorios.</span></span><span class="home-experiences__arrow" aria-hidden="true">↗</span></a>
+          <a class="home-experiences__item" href="pages/cultura.html"><span class="home-experiences__number">03</span><span class="home-experiences__item-copy"><span class="home-experiences__title">Cultura y tradiciones</span><span class="home-experiences__description">Conocé las costumbres, celebraciones y expresiones culturales locales.</span></span><span class="home-experiences__arrow" aria-hidden="true">↗</span></a>
+          <a class="home-experiences__item" href="pages/gastronomia.html"><span class="home-experiences__number">04</span><span class="home-experiences__item-copy"><span class="home-experiences__title">Sabores regionales</span><span class="home-experiences__description">Explorá la gastronomía y los productos tradicionales de Santa María.</span></span><span class="home-experiences__arrow" aria-hidden="true">↗</span></a>
+        </div>
+        <a class="home-experiences__more" href="pages/experiencias.html">Explorar todas las experiencias <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="home-culture" id="cultura" aria-labelledby="home-culture-title">
+      <div class="home-culture__inner">
+        <figure class="home-culture__visual">
+          <img src="assets/img/experiencias/experiencia-cultura.jpg" alt="Piezas de cestería artesanal en una feria local" width="681" height="450" loading="lazy">
+          <figcaption>Oficios, encuentros e identidad</figcaption>
+        </figure>
+        <div class="home-culture__copy">
+          <p class="home-culture__eyebrow">Cultura y tradiciones <span aria-hidden="true">/</span> 04</p>
+          <h2 id="home-culture-title">Una identidad que se comparte</h2>
+          <p>Las expresiones culturales acompañan la vida del valle y mantienen vivo el vínculo con sus raíces.</p>
+          <a href="pages/cultura.html">Descubrir la cultura local <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-gastronomy" id="gastronomia" aria-labelledby="home-gastronomy-title">
+      <div class="home-gastronomy__inner">
+        <div class="home-gastronomy__copy">
+          <p class="home-gastronomy__eyebrow">Gastronomía <span aria-hidden="true">/</span> 05</p>
+          <h2 id="home-gastronomy-title">Sabores que cuentan historias</h2>
+          <p>Una invitación a descubrir los sabores y productos que forman parte de la mesa santamariana.</p>
+          <a href="pages/gastronomia.html">Explorar la gastronomía <span aria-hidden="true">↗</span></a>
+        </div>
+        <figure class="home-gastronomy__visual">
+          <img src="assets/img/gastronomia/sabores-tradicionales.jpg" alt="Preparación regional presentada sobre una hoja de maíz" width="1620" height="1080" loading="lazy" data-parallax>
+          <figcaption>Sabores del Yokavil</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__main">
+        <div class="site-footer__identity">
+          <a class="site-footer__brand" href="index.html" aria-label="Destino Santa María, inicio">
+            <img src="assets/logo/logo-destino-horizontal-claro.png" alt="Destino Santa María">
+          </a>
+          <p class="site-footer__name">Destino Santa María</p>
+          <p class="site-footer__tagline">Historias, paisajes y experiencias por descubrir</p>
+        </div>
+        <nav class="site-footer__navigation" aria-label="Explorá">
+          <h2 class="site-footer__heading">Explorá</h2>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="pages/historia.html">Historia</a></li>
+            <li><a href="pages/destinos.html">Destinos</a></li>
+            <li><a href="pages/cultura.html">Cultura</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__navigation" aria-label="Descubrí">
+          <h2 class="site-footer__heading">Descubrí</h2>
+          <ul>
+            <li><a href="pages/gastronomia.html">Gastronomía</a></li>
+            <li><a href="pages/experiencias.html">Experiencias</a></li>
+            <li><a href="pages/guia-turistica.html">Guía turística</a></li>
+            <li><a href="pages/galeria.html">Galería</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p>© 2026 Destino Santa María. Todos los derechos reservados</p>
+        <p>Santa María, Catamarca <span aria-hidden="true">·</span> Argentina</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

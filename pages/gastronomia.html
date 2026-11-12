@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F8F6F0">
+  <title>Gastronomía | Destino Santa María</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/main.js" defer></script>
+  <style>
+    .food-page { overflow-x:clip; }
+    .food-hero { display:flex; align-items:flex-end; min-height:min(65vh, 650px); min-height:min(65svh, 650px); padding:9rem clamp(1.5rem, 10vw, 9rem) 5rem; color:var(--paper); background:linear-gradient(90deg, rgb(25 20 17 / 55%), rgb(25 20 17 / 18%) 72%, rgb(25 20 17 / 5%)), url("../assets/img/gastronomia/hero-gastronomia.jpg"); background-position:center; background-size:cover; }
+    .food-hero__content { width:min(100%, 850px); }
+    .food-eyebrow, .food-kicker { margin:0 0 .9rem; color:var(--terracotta); font-size:.67rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; }
+    .food-hero__eyebrow { color:var(--sand); }
+    .food-hero__title { margin:0; font:500 clamp(3rem, 6.5vw, 5.8rem)/1.06 "Playfair Display", Georgia, serif; letter-spacing:-.04em; text-wrap:balance; }
+    .food-hero__subtitle { max-width:650px; margin:1.35rem 0 0; color:rgb(248 246 240 / 86%); font-size:clamp(1rem, 1.5vw, 1.12rem); line-height:1.8; }
+    .food-section { padding:clamp(4.5rem, 8vw, 7rem) clamp(1.4rem, 8vw, 7rem); }
+    .food-section__inner { width:min(100%, 1280px); margin-inline:auto; }
+    .food-title { max-width:780px; margin:0; color:var(--ink); font:500 clamp(2.4rem, 4.6vw, 4.2rem)/1.12 "Playfair Display", Georgia, serif; letter-spacing:-.035em; text-wrap:balance; }
+    .food-copy { max-width:650px; margin:1.2rem 0 0; color:rgb(48 37 31 / 78%); font-size:.91rem; line-height:1.85; }
+    .food-copy p { margin:0 0 .8rem; }
+    .food-photo { min-width:0; min-height:0; margin:0; overflow:hidden; background:linear-gradient(145deg, rgb(48 37 31 / 3%), rgb(48 37 31 / 11%)), var(--sand); }
+    .food-photo--wide { aspect-ratio:1.45 / 1; }
+    .food-photo--landscape { aspect-ratio:1.7 / 1; }
+    .food-photo--portrait { aspect-ratio:.86 / 1; }
+    .food-photo img { display:block; width:100%; height:100%; min-height:inherit; object-fit:cover; }
+    .food-intro { background:var(--paper); }
+    .food-intro__layout { display:grid; grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr); align-items:center; gap:clamp(2rem, 7vw, 7rem); }
+    .food-capia { color:var(--paper); background:var(--terracotta); }
+    .food-capia .food-title { color:var(--paper); }
+    .food-capia .food-kicker { color:var(--sand); }
+    .food-capia__layout { display:grid; grid-template-columns:minmax(0, 1.1fr) minmax(0, .9fr); align-items:center; gap:clamp(2rem, 7vw, 7rem); }
+    .food-traditional { background:var(--sand); }
+    .food-traditional__layout { display:grid; grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr); align-items:center; gap:clamp(2rem, 7vw, 7rem); }
+    .food-products { color:var(--paper); background:var(--ink); }
+    .food-products .food-title { color:var(--paper); }
+    .food-products .food-kicker { color:var(--sand); }
+    .food-products__grid { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:1rem; margin-top:2.5rem; }
+    .food-product { min-width:0; }
+    .food-product__visual { aspect-ratio:.9 / 1; }
+    .food-product__name { display:block; margin-top:1rem; color:var(--paper); font:500 clamp(1.2rem, 2vw, 1.65rem)/1.2 "Playfair Display", Georgia, serif; }
+    .food-wine { background:var(--paper); }
+    .food-wine__layout { display:grid; grid-template-columns:minmax(0, .85fr) minmax(0, 1.15fr); align-items:center; gap:clamp(2rem, 7vw, 7rem); }
+    .food-experiences { background:var(--sand); }
+    .food-experiences__layout { display:grid; grid-template-columns:minmax(0, 1.05fr) minmax(0, .95fr); align-items:center; gap:clamp(2rem, 7vw, 7rem); }
+    .food-close { padding:clamp(4rem, 7vw, 6rem) 1.5rem; color:var(--paper); background:var(--olive); text-align:center; }
+    .food-close__inner { width:min(100%, 760px); margin-inline:auto; }
+    .food-close__title { margin:0; font:500 clamp(2.3rem, 4.8vw, 4rem)/1.12 "Playfair Display", Georgia, serif; text-wrap:balance; }
+    .food-close__link { display:inline-flex; align-items:center; gap:.9rem; margin-top:1.6rem; padding:.95rem 1.2rem; color:var(--ink); background:var(--paper); font-size:.76rem; font-weight:600; text-decoration:none; transition:gap 180ms ease, background-color 180ms ease; }
+    .food-close__link:hover { gap:1.2rem; background:var(--sand); }
+    @media (max-width: 820px) {
+      .food-products__grid { grid-template-columns:repeat(2, minmax(0, 1fr)); gap:1.5rem; }
+      .food-intro__layout, .food-capia__layout, .food-traditional__layout, .food-wine__layout, .food-experiences__layout { gap:2rem; }
+    }
+    @media (max-width: 1000px) {
+      .food-intro__layout, .food-capia__layout, .food-traditional__layout, .food-wine__layout, .food-experiences__layout { grid-template-columns:1fr; }
+      .food-photo--portrait { aspect-ratio:1.4 / 1; }
+    }
+    @media (max-width: 640px) {
+      .food-hero { min-height:58svh; padding:8rem 1.4rem 4rem; }
+      .food-hero__title { font-size:clamp(2.8rem, 12vw, 4.2rem); }
+      .food-section { padding:4.5rem 1.4rem; }
+      .food-intro__layout, .food-capia__layout, .food-traditional__layout, .food-wine__layout, .food-experiences__layout { grid-template-columns:1fr; }
+      .food-photo { min-height:0; }
+      .food-photo--wide, .food-photo--landscape { aspect-ratio:1.2 / 1; }
+      .food-photo--portrait { aspect-ratio:1 / 1; }
+      .food-products__grid { gap:1rem; }
+      .food-product__visual { aspect-ratio:.82 / 1; }
+    }
+  </style>
+</head>
+<body class="food-page">
+  <header class="site-header" data-site-header>
+    <a class="site-header__brand" href="../index.html" aria-label="Destino Santa María, inicio"><img src="../assets/logo/logo-destino-horizontal-claro.png" alt="Destino Santa María"></a>
+    <button class="site-header__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle><span></span><span></span><span></span></button>
+    <nav class="site-header__nav" id="site-navigation" aria-label="Navegación principal" data-site-navigation>
+      <a href="../index.html">Inicio</a><a href="historia.html">Historia</a><a href="destinos.html">Destinos</a><a href="cultura.html">Cultura</a><a href="gastronomia.html" aria-current="page">Gastronomía</a><a href="experiencias.html">Experiencias</a><a href="guia-turistica.html">Guía turística</a><a class="site-header__cta" href="destinos.html">Explorar <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="food-hero" aria-labelledby="food-hero-title">
+      <div class="food-hero__content">
+        <p class="food-hero__eyebrow">Gastronomía · Santa María</p>
+        <h1 class="food-hero__title" id="food-hero-title">Sabores que cuentan historias</h1>
+        <p class="food-hero__subtitle">Un recorrido por los sabores y productos que acompañan la identidad gastronómica de Santa María.</p>
+      </div>
+    </section>
+
+    <section class="food-section food-intro" aria-labelledby="food-intro-title">
+      <div class="food-section__inner food-intro__layout">
+        <div>
+          <p class="food-kicker">Valle de Yokavil</p>
+          <h2 class="food-title" id="food-intro-title">Sabores que cuentan la historia de nuestra tierra.</h2>
+          <div class="food-copy">
+            <p>Santa María tiene una identidad gastronómica construida a partir de sus productos, sus paisajes y los conocimientos transmitidos de generación en generación.</p>
+            <p>El maíz, las especias, las nueces y las preparaciones artesanales forman parte de una cocina que conserva sabores tradicionales y refleja la riqueza del Valle de Yokavil.</p>
+            <p>Descubrir su gastronomía es también conocer el trabajo de sus productores y las costumbres de una comunidad que mantiene viva su herencia culinaria.</p>
+          </div>
+        </div>
+        <figure class="food-photo food-photo--wide"><img src="../assets/img/gastronomia/identidad-gastronomica.jpg" alt="Identidad gastronómica del Valle de Yokavil" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <section class="food-section food-capia" aria-labelledby="food-capia-title">
+      <div class="food-section__inner food-capia__layout">
+        <div>
+          <p class="food-kicker">Producto emblemático</p>
+          <h2 class="food-title" id="food-capia-title">Un sabor que representa a Santa María.</h2>
+          <div class="food-copy">
+            <p>La capia es uno de los productos gastronómicos más representativos de Santa María. Este alfajor artesanal, elaborado con harina de maíz capia, conserva una receta y técnicas de preparación transmitidas entre generaciones.</p>
+            <p>Su elaboración requiere conocimientos particulares sobre la preparación de la masa, el reposo y la cocción. Cada productor mantiene sus propios saberes, convirtiendo este producto en una expresión de la identidad local.</p>
+            <p>En reconocimiento a su importancia cultural, la receta artesanal de la capia fue declarada Patrimonio Inmaterial Cultural de la Provincia de Catamarca mediante la Ley N.º 5851, sancionada en julio de 2024.</p>
+          </div>
+        </div>
+        <figure class="food-photo food-photo--portrait"><img src="../assets/img/gastronomia/capia.jpg" alt="Capia, producto emblemático de Santa María" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <section class="food-section food-traditional" aria-labelledby="food-traditional-title">
+      <div class="food-section__inner food-traditional__layout">
+        <figure class="food-photo food-photo--landscape"><img src="../assets/img/gastronomia/sabores-tradicionales.jpg" alt="Sabores tradicionales de Santa María" loading="lazy"></figure>
+        <div>
+          <p class="food-kicker">Cocina regional</p>
+          <h2 class="food-title" id="food-traditional-title">Recetas que conservan nuestras raíces.</h2>
+          <div class="food-copy">
+            <p>La cocina regional de Santa María reúne preparaciones vinculadas a la tradición andina y a los productos cultivados en el valle.</p>
+            <p>Entre sus sabores se encuentran el mote, los tamales y las humitas, elaboraciones en las que el maíz ocupa un lugar protagonista. También forman parte de la gastronomía local distintas masas regionales, empanadillas, gaznates y rosquetes.</p>
+            <p>Son recetas que conservan formas de preparación heredadas y que continúan presentes en las mesas familiares y en los encuentros populares.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="food-section food-products" aria-labelledby="food-products-title">
+      <div class="food-section__inner">
+        <p class="food-kicker">De la tierra al encuentro</p>
+        <h2 class="food-title" id="food-products-title">Los sabores que nacen de nuestra tierra.</h2>
+        <div class="food-copy">
+          <p>La producción regional de Santa María se caracteriza por la variedad de ingredientes y productos elaborados por pequeños productores y emprendimientos familiares.</p>
+          <p>El maíz capia, el pimiento utilizado para elaborar pimentón, las especias y las nueces forman parte de esta riqueza productiva.</p>
+          <p>También se destacan los derivados de la nuez, como harinas, aceites, cremas y alfajores, junto con dulces y otras elaboraciones artesanales.</p>
+          <p>Cada producto refleja el trabajo local y el aprovechamiento de los recursos del territorio.</p>
+        </div>
+        <div class="food-products__grid">
+          <article class="food-product"><figure class="food-photo food-product__visual"><img src="../assets/img/gastronomia/maiz-capia.jpg" alt="Maíz capia" loading="lazy"></figure><span class="food-product__name">Maíz capia</span></article>
+          <article class="food-product"><figure class="food-photo food-product__visual"><img src="../assets/img/gastronomia/pimenton.jpg" alt="Pimientos" loading="lazy"></figure><span class="food-product__name">Pimentón</span></article>
+          <article class="food-product"><figure class="food-photo food-product__visual"><img src="../assets/img/gastronomia/nueces.jpg" alt="Nueces" loading="lazy"></figure><span class="food-product__name">Nueces</span></article>
+          <article class="food-product"><figure class="food-photo food-product__visual"><img src="../assets/img/gastronomia/dulces-regionales.jpg" alt="Dulces regionales" loading="lazy"></figure><span class="food-product__name">Dulces</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="food-section food-wine" aria-labelledby="food-wine-title">
+      <div class="food-section__inner food-wine__layout">
+        <div>
+          <p class="food-kicker">Paisaje y producción</p>
+          <h2 class="food-title" id="food-wine-title">Viñedos que crecen cerca del cielo.</h2>
+          <div class="food-copy">
+            <p>La vitivinicultura forma parte de la historia productiva del Valle de Yokavil. Las condiciones geográficas y climáticas de la región permiten desarrollar cultivos de vid en un entorno de gran amplitud térmica y paisajes montañosos.</p>
+            <p>En Santa María, esta tradición se mantiene mediante bodegas y pequeños productores que elaboran vinos con identidad regional.</p>
+            <p>Entre las elaboraciones tradicionales se encuentran el vino patero, la mistela y otras variedades que expresan el carácter de la producción vitivinícola del valle.</p>
+          </div>
+        </div>
+        <figure class="food-photo food-photo--landscape"><img src="../assets/img/gastronomia/vinos-altura.jpg" alt="Vinos de altura de Santa María" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <section class="food-section food-experiences" aria-labelledby="food-experiences-title">
+      <div class="food-section__inner food-experiences__layout">
+        <figure class="food-photo food-photo--wide"><img src="../assets/img/gastronomia/experiencias-gastronomicas.jpg" alt="Experiencias gastronómicas en Santa María" loading="lazy"></figure>
+        <div>
+          <p class="food-kicker">Encuentros con productores</p>
+          <h2 class="food-title" id="food-experiences-title">Mucho más que probar un sabor.</h2>
+          <div class="food-copy">
+            <p>La gastronomía de Santa María también puede descubrirse a través de experiencias que acercan al visitante a sus productores y elaboradores.</p>
+            <p>La Ruta de la Capia permite conocer emprendimientos dedicados a la elaboración de este producto tradicional. También existen propuestas vinculadas a las especias, los productos derivados de la nuez y los vinos de altura.</p>
+            <p>Recorrer estos espacios es una oportunidad para conocer los procesos artesanales, descubrir sabores regionales y valorar el trabajo de quienes mantienen vivas las tradiciones gastronómicas del valle.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="food-close" aria-labelledby="food-close-title">
+      <div class="food-close__inner">
+        <h2 class="food-close__title" id="food-close-title">Seguí explorando Santa María</h2>
+        <a class="food-close__link" href="guia-turistica.html">Consultá la guía turística <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__main">
+        <div class="site-footer__identity">
+          <a class="site-footer__brand" href="../index.html" aria-label="Destino Santa María, inicio"><img src="../assets/logo/logo-destino-horizontal-claro.png" alt="Destino Santa María"></a>
+          <p class="site-footer__name">Destino Santa María</p>
+          <p class="site-footer__tagline">Historias, paisajes y experiencias por descubrir</p>
+        </div>
+        <nav class="site-footer__navigation" aria-label="Explorá">
+          <h2 class="site-footer__heading">Explorá</h2>
+          <ul><li><a href="../index.html">Inicio</a></li><li><a href="historia.html">Historia</a></li><li><a href="destinos.html">Destinos</a></li><li><a href="cultura.html">Cultura</a></li></ul>
+        </nav>
+        <nav class="site-footer__navigation" aria-label="Descubrí">
+          <h2 class="site-footer__heading">Descubrí</h2>
+          <ul><li><a href="gastronomia.html" aria-current="page">Gastronomía</a></li><li><a href="experiencias.html">Experiencias</a></li><li><a href="guia-turistica.html">Guía turística</a></li><li><a href="galeria.html">Galería</a></li></ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom"><p>© 2026 Destino Santa María. Todos los derechos reservados</p><p>Santa María, Catamarca <span aria-hidden="true">·</span> Argentina</p></div>
+    </div>
+  </footer>
+</body>
+</html>

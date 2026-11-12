@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F8F6F0">
+  <meta name="description" content="Información práctica para organizar tu visita a Santa María y recorrer el Valle de Yokavil, Catamarca.">
+  <title>Guía turística | Destino Santa María</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/main.js" defer></script>
+  <style>
+    .guide-page { overflow-x:clip; }
+    .guide-hero { position:relative; isolation:isolate; display:flex; align-items:flex-end; min-height:min(72svh, 700px); overflow:hidden; padding:calc(var(--header-height) + 4rem) clamp(1.4rem, 10vw, 9rem) 5rem; color:var(--paper); background:var(--ink); }
+    .guide-hero::after { position:absolute; z-index:0; inset:0; background:linear-gradient(90deg, rgb(25 20 17 / 67%), rgb(25 20 17 / 25%) 72%, rgb(25 20 17 / 7%)), linear-gradient(0deg, rgb(25 20 17 / 26%), transparent 52%); content:""; }
+    .guide-hero__photo { position:absolute; z-index:-1; inset:0; width:100%; height:100%; margin:0; overflow:hidden; background:var(--ink); }
+    .guide-hero__photo img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+    .guide-hero__content { position:relative; z-index:1; width:min(100%, 850px); }
+    .guide-hero__eyebrow, .guide-kicker { margin:0 0 .9rem; color:var(--terracotta); font-size:.67rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; }
+    .guide-hero__eyebrow { color:var(--sand); }
+    .guide-hero__title { max-width:850px; margin:0; font:500 clamp(3rem, 6.2vw, 5.5rem)/1.06 "Playfair Display", Georgia, serif; letter-spacing:-.04em; text-wrap:balance; }
+    .guide-hero__intro { max-width:610px; margin:1.25rem 0 0; color:rgb(248 246 240 / 86%); font-size:clamp(1rem, 1.5vw, 1.12rem); line-height:1.8; }
+    .guide-section { padding:clamp(4.4rem, 7.5vw, 6.5rem) clamp(1.4rem, 8vw, 7rem); }
+    .guide-section__inner { width:min(100%, 1280px); margin-inline:auto; }
+    .guide-title { max-width:760px; margin:0; color:var(--ink); font:500 clamp(2.35rem, 4.4vw, 4rem)/1.12 "Playfair Display", Georgia, serif; letter-spacing:-.035em; text-wrap:balance; }
+    .guide-copy { max-width:650px; margin:1rem 0 0; color:rgb(48 37 31 / 78%); font-size:.9rem; line-height:1.85; }
+    .guide-copy p { margin:0 0 .85rem; }
+    .guide-photo { min-width:0; margin:0; overflow:hidden; background:var(--sand); }
+    .guide-photo img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+    .guide-button { display:inline-flex; align-items:center; gap:.85rem; margin-top:1rem; padding:.9rem 1.1rem; color:var(--paper); background:var(--terracotta); font-size:.74rem; font-weight:600; text-decoration:none; transition:background-color 180ms ease, transform 180ms ease; }
+    .guide-button:hover { background:var(--olive); transform:translateY(-2px); }
+    .guide-arrow { color:var(--terracotta); font-size:.8rem; text-decoration:none; }
+    .guide-arrow:hover { text-decoration:underline; }
+    .guide-arrival { background:var(--paper); }
+    .guide-arrival__layout { display:grid; grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr); align-items:center; gap:clamp(2.5rem, 8vw, 7.5rem); }
+    .guide-arrival__photo { aspect-ratio:1.06 / 1; }
+    .guide-fact { display:flex; align-items:baseline; gap:.85rem; margin-top:1.5rem; padding-top:1rem; border-top:1px solid rgb(48 37 31 / 18%); }
+    .guide-fact__number { color:var(--terracotta); font:500 1.55rem/1 "Playfair Display", Georgia, serif; white-space:nowrap; }
+    .guide-fact__label { color:rgb(48 37 31 / 72%); font-size:.72rem; line-height:1.65; }
+    .guide-stays { background:var(--sand); }
+    .guide-stays__layout { display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, .92fr); align-items:center; gap:clamp(2rem, 7vw, 6.5rem); }
+    .guide-stays__photo { aspect-ratio:1.18 / 1; }
+    .guide-options { display:flex; flex-wrap:wrap; gap:.55rem; margin:1.5rem 0 .25rem; padding:0; list-style:none; }
+    .guide-options li { padding:.55rem .7rem; color:var(--ink); background:rgb(248 246 240 / 68%); font-size:.7rem; }
+    .guide-mobility { color:var(--paper); background:var(--olive); }
+    .guide-mobility .guide-title { color:var(--paper); }
+    .guide-mobility .guide-kicker { color:var(--sand); }
+    .guide-mobility__head { display:grid; grid-template-columns:minmax(0, 1fr) minmax(260px, .8fr); align-items:end; gap:2.5rem; margin-bottom:2.4rem; }
+    .guide-mobility__head .guide-copy { margin:0; color:rgb(248 246 240 / 82%); }
+    .guide-mobility__layout { display:grid; grid-template-columns:minmax(0, 1.1fr) minmax(0, .9fr); align-items:center; gap:clamp(2rem, 7vw, 6.5rem); }
+    .guide-mobility__photo { aspect-ratio:1.35 / 1; }
+    .mobility-list { display:grid; grid-template-columns:1fr; }
+    .mobility-item { display:grid; grid-template-columns:2.6rem 1fr; gap:1rem; padding:1.15rem 0; border-top:1px solid rgb(248 246 240 / 24%); }
+    .mobility-item:last-child { border-bottom:1px solid rgb(248 246 240 / 24%); }
+    .mobility-item__index { color:var(--sand); font-size:.66rem; font-weight:600; letter-spacing:.12em; }
+    .mobility-item__title { margin:0; color:var(--paper); font:500 1.35rem/1.2 "Playfair Display", Georgia, serif; }
+    .mobility-item__copy { margin:.45rem 0 0; color:rgb(248 246 240 / 78%); font-size:.78rem; line-height:1.7; }
+    .mobility-item__links { display:flex; flex-wrap:wrap; gap:.7rem 1.1rem; margin-top:.7rem; }
+    .mobility-item__links a { color:var(--sand); font-size:.7rem; text-decoration:underline; text-underline-offset:3px; }
+    .guide-useful { background:var(--paper); }
+    .guide-useful__intro { display:grid; grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr); align-items:end; gap:2.5rem; margin-bottom:2.5rem; }
+    .guide-useful__intro .guide-copy { margin:0; }
+    .guide-useful__layout { display:grid; grid-template-columns:minmax(0, .86fr) minmax(0, 1.14fr); align-items:stretch; gap:clamp(2rem, 5vw, 5rem); }
+    .guide-useful__photo { min-height:100%; aspect-ratio:.94 / 1; }
+    .guide-info-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:0 1.5rem; }
+    .guide-info { padding:1.15rem 0; border-top:1px solid rgb(48 37 31 / 19%); }
+    .guide-info__title { margin:0; color:var(--ink); font:500 1.25rem/1.25 "Playfair Display", Georgia, serif; }
+    .guide-info__copy { margin:.5rem 0 0; color:rgb(48 37 31 / 75%); font-size:.75rem; line-height:1.7; }
+    .guide-info__link { display:inline-block; margin-top:.6rem; color:var(--terracotta); font-size:.69rem; font-weight:600; line-height:1.5; text-decoration:none; }
+    .guide-info__link:hover { text-decoration:underline; text-underline-offset:3px; }
+    .guide-seasons { background:var(--sand); }
+    .guide-seasons__layout { display:grid; grid-template-columns:minmax(0, .94fr) minmax(0, 1.06fr); align-items:center; gap:clamp(2rem, 7vw, 6.5rem); }
+    .guide-seasons__photo { aspect-ratio:.9 / 1; }
+    .season-list { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:1.3rem 1.5rem; margin-top:1.8rem; }
+    .season { padding-top:.75rem; border-top:1px solid rgb(48 37 31 / 22%); }
+    .season__name { margin:0; color:var(--terracotta); font-size:.65rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; }
+    .season__copy { margin:.45rem 0 0; color:rgb(48 37 31 / 78%); font-size:.77rem; line-height:1.7; }
+    .guide-before { padding:clamp(4.3rem, 7vw, 6rem) clamp(1.4rem, 8vw, 7rem); color:var(--paper); background:var(--ink); }
+    .guide-before__inner { display:grid; grid-template-columns:minmax(0, .75fr) minmax(0, 1.25fr); gap:clamp(2rem, 7vw, 6.5rem); width:min(100%, 1280px); margin-inline:auto; }
+    .guide-before .guide-title { color:var(--paper); }
+    .guide-before .guide-kicker { color:var(--sand); }
+    .guide-before__copy { max-width:390px; margin:1rem 0 0; color:rgb(248 246 240 / 76%); font-size:.84rem; line-height:1.8; }
+    .checklist { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:0 2rem; margin:0; padding:0; list-style:none; }
+    .checklist li { position:relative; padding:1.05rem 0 1.05rem 1.6rem; border-top:1px solid rgb(248 246 240 / 22%); color:rgb(248 246 240 / 88%); font-size:.8rem; line-height:1.65; }
+    .checklist li::before { position:absolute; left:0; color:var(--sand); content:"↗"; }
+    .guide-before__source { display:inline-block; margin-top:1rem; color:var(--sand); font-size:.73rem; text-decoration:underline; text-underline-offset:3px; }
+    @media (max-width: 1000px) {
+      .guide-arrival__layout, .guide-stays__layout, .guide-mobility__layout, .guide-useful__layout, .guide-seasons__layout, .guide-before__inner { grid-template-columns:1fr; gap:2.2rem; }
+      .guide-arrival__photo { order:2; }
+      .guide-stays__photo { max-height:440px; }
+      .guide-mobility__photo { max-height:440px; }
+      .guide-useful__photo { min-height:0; aspect-ratio:1.5 / 1; max-height:440px; }
+      .guide-seasons__photo { max-height:440px; }
+      .guide-useful__intro { grid-template-columns:1fr; gap:1rem; }
+    }
+    @media (max-width:640px) {
+      .guide-hero { min-height:64svh; padding:calc(var(--header-height) + 3rem) 1.4rem 3.5rem; }
+      .guide-hero__title { font-size:clamp(2.7rem, 11vw, 4rem); }
+      .guide-section { padding:4.2rem 1.4rem; }
+      .guide-mobility__head { grid-template-columns:1fr; gap:1rem; margin-bottom:1.8rem; }
+      .guide-info-grid, .season-list, .checklist { grid-template-columns:1fr; }
+      .guide-useful__photo { aspect-ratio:1.2 / 1; }
+      .guide-before { padding:4.2rem 1.4rem; }
+    }
+  </style>
+</head>
+<body class="guide-page">
+  <header class="site-header" data-site-header>
+    <a class="site-header__brand" href="../index.html" aria-label="Destino Santa María, inicio"><img src="../assets/logo/logo-destino-horizontal-claro.png" alt="Destino Santa María"></a>
+    <button class="site-header__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle><span></span><span></span><span></span></button>
+    <nav class="site-header__nav" id="site-navigation" aria-label="Navegación principal" data-site-navigation>
+      <a href="../index.html">Inicio</a><a href="historia.html">Historia</a><a href="destinos.html">Destinos</a><a href="cultura.html">Cultura</a><a href="gastronomia.html">Gastronomía</a><a href="experiencias.html">Experiencias</a><a href="guia-turistica.html" aria-current="page">Guía turística</a><a class="site-header__cta" href="destinos.html">Explorar <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="guide-hero" aria-labelledby="guide-hero-title">
+      <div class="guide-hero__content">
+        <p class="guide-hero__eyebrow">Guía turística · Valle de Yokavil</p>
+        <h1 class="guide-hero__title" id="guide-hero-title">Todo lo que necesitás para descubrir Santa María</h1>
+        <p class="guide-hero__intro">Una guía práctica para preparar el viaje, orientarte al llegar y disfrutar el Valle de Yokavil a tu manera.</p>
+      </div>
+      <figure class="guide-photo guide-hero__photo"><img src="../assets/img/guia-turistica/hero-guia.jpg" alt="Paisaje de Santa María, Catamarca" width="596" height="335"></figure>
+    </section>
+
+    <section class="guide-section guide-arrival" id="como-llegar" aria-labelledby="arrival-title">
+      <div class="guide-section__inner guide-arrival__layout">
+        <figure class="guide-photo guide-arrival__photo"><img src="../assets/img/guia-turistica/como-llegar.jpg" alt="Camino de acceso a Santa María" width="399" height="501" loading="lazy"></figure>
+        <div>
+          <p class="guide-kicker">01 · Planificá el recorrido</p>
+          <h2 class="guide-title" id="arrival-title">Cómo llegar</h2>
+          <div class="guide-copy">
+            <p>Santa María se encuentra en el este de Catamarca, sobre el corredor de la Ruta Nacional 40. El mapa rutero y urbano municipal también señala conexiones por la Ruta Provincial 17 hacia Amaicha del Valle y Quilmes.</p>
+            <p>Desde otras provincias podés llegar en vehículo particular o en ómnibus de larga distancia. La Municipalidad publica información de empresas y puntos de salida en la Terminal; recorridos, frecuencias y disponibilidad pueden cambiar, así que conviene confirmarlos antes de viajar.</p>
+          </div>
+          <div class="guide-fact"><span class="guide-fact__number">332 km</span><span class="guide-fact__label">separan Santa María de San Fernando del Valle de Catamarca, según la información municipal.</span></div>
+          <a class="guide-button" href="https://municipalidadsantamaria.gob.ar/transporte/" target="_blank" rel="noopener noreferrer">Consultar transporte municipal <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-section guide-stays" id="alojamiento" aria-labelledby="stays-title">
+      <div class="guide-section__inner guide-stays__layout">
+        <div>
+          <p class="guide-kicker">02 · Encontrá tu lugar</p>
+          <h2 class="guide-title" id="stays-title">Dónde alojarse</h2>
+          <div class="guide-copy"><p>En Santa María y sus alrededores hay distintas modalidades para organizar la estadía. Elegí según el tipo de viaje, la ubicación que te conviene y los servicios que necesitás.</p><p>El directorio provincial reúne alojamientos habilitados por localidad. Consultá allí los datos vigentes y contactá cada establecimiento para confirmar tarifas, disponibilidad y condiciones.</p></div>
+          <ul class="guide-options" aria-label="Modalidades de alojamiento"><li>Hoteles</li><li>Hostales</li><li>Residenciales</li><li>Cabañas</li><li>Apart hoteles</li><li>Campings</li></ul>
+          <a class="guide-button" href="https://calidad.catamarca.gob.ar/departamento-santa-maria/" target="_blank" rel="noopener noreferrer">Ver alojamientos habilitados <span aria-hidden="true">↗</span></a>
+        </div>
+        <figure class="guide-photo guide-stays__photo"><img src="../assets/img/guia-turistica/alojamientos.jpg" alt="Alojamiento en el Valle de Yokavil" width="640" height="480" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <section class="guide-section guide-mobility" id="como-moverse" aria-labelledby="mobility-title">
+      <div class="guide-section__inner">
+        <div class="guide-mobility__head"><div><p class="guide-kicker">03 · Moverse por el valle</p><h2 class="guide-title" id="mobility-title">Cómo moverse</h2></div><p class="guide-copy">Las alternativas dependen del destino y del día. Consultá los canales oficiales y verificá horarios, recorridos y disponibilidad antes de salir.</p></div>
+        <div class="guide-mobility__layout">
+          <figure class="guide-photo guide-mobility__photo"><img src="../assets/img/guia-turistica/transporte.jpg" alt="Transporte y caminos de Santa María" width="640" height="480" loading="lazy"></figure>
+          <div class="mobility-list">
+            <article class="mobility-item"><span class="mobility-item__index">A</span><div><h3 class="mobility-item__title">Transporte público</h3><p class="mobility-item__copy">La información municipal reúne referencias de transporte urbano y de larga distancia. Confirmá líneas, horarios y puntos de salida directamente antes de viajar.</p><div class="mobility-item__links"><a href="https://municipalidadsantamaria.gob.ar/transporte/" target="_blank" rel="noopener noreferrer">Transporte municipal</a><a href="https://catamarcatransporte.gob.ar/" target="_blank" rel="noopener noreferrer">Catamarca Transporte</a></div></div></article>
+            <article class="mobility-item"><span class="mobility-item__index">B</span><div><h3 class="mobility-item__title">Remiserías</h3><p class="mobility-item__copy">Para traslados dentro de la ciudad o hacia localidades cercanas, consultá el directorio municipal y acordá previamente recorrido y tarifa.</p><div class="mobility-item__links"><a href="https://municipalidadsantamaria.gob.ar/remiserias/" target="_blank" rel="noopener noreferrer">Ver remiserías</a></div></div></article>
+            <article class="mobility-item"><span class="mobility-item__index">C</span><div><h3 class="mobility-item__title">Excursiones</h3><p class="mobility-item__copy">Las visitas y actividades pueden requerir reserva o coordinación previa. Consultá guías habilitados y disponibilidad para cada salida.</p><div class="mobility-item__links"><a href="https://municipalidadsantamaria.gob.ar/guias-turisticos/" target="_blank" rel="noopener noreferrer">Guías habilitados</a><a href="https://catamarcatransporte.gob.ar/" target="_blank" rel="noopener noreferrer">Transporte turístico habilitado</a></div></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-section guide-useful" id="informacion-util" aria-labelledby="useful-title">
+      <div class="guide-section__inner">
+        <div class="guide-useful__intro"><div><p class="guide-kicker">04 · Referencias para tu estadía</p><h2 class="guide-title" id="useful-title">Información útil</h2></div><p class="guide-copy">Algunos directorios y servicios se actualizan con frecuencia. Para confirmar horarios, contactos y ubicaciones, consultá las fuentes oficiales antes de necesitarlos.</p></div>
+        <div class="guide-useful__layout">
+          <figure class="guide-photo guide-useful__photo"><img src="../assets/img/guia-turistica/informacion-turistica.jpg" alt="Punto de información para visitantes en Santa María" width="1920" height="1280" loading="lazy"></figure>
+          <div class="guide-info-grid">
+            <article class="guide-info"><h3 class="guide-info__title">Información turística</h3><p class="guide-info__copy">El municipio publica tres puntos de atención. En el Centro Cultural Yokavil informa ubicación en Sarmiento y Belgrano y teléfono 03838-421083. Confirmá días y horarios antes de acercarte.</p><a class="guide-info__link" href="https://municipalidadsantamaria.gob.ar/informacion-turistica/" target="_blank" rel="noopener noreferrer">Ubicaciones y datos publicados ↗</a></article>
+            <article class="guide-info"><h3 class="guide-info__title">Centros de salud</h3><p class="guide-info__copy">El mapa urbano municipal identifica el hospital. Para atención, guardias y teléfonos vigentes, verificá directamente con los servicios locales.</p><a class="guide-info__link" href="https://municipalidadsantamaria.gob.ar/wp-content/uploads/2024/06/MAPA-RUTERO-Y-CIUDAD.pdf" target="_blank" rel="noopener noreferrer">Consultar mapa municipal ↗</a></article>
+            <article class="guide-info"><h3 class="guide-info__title">Farmacias</h3><p class="guide-info__copy">Consultá el listado municipal para revisar direcciones y teléfonos; confirmá turnos y atención antes de ir.</p><a class="guide-info__link" href="https://municipalidadsantamaria.gob.ar/farmacias/" target="_blank" rel="noopener noreferrer">Ver listado de farmacias ↗</a></article>
+            <article class="guide-info"><h3 class="guide-info__title">Bancos y cajeros</h3><p class="guide-info__copy">El mapa municipal indica la ubicación de un banco. Verificá entidades, cajeros y servicios disponibles, ya que la referencia cartográfica puede cambiar.</p><a class="guide-info__link" href="https://municipalidadsantamaria.gob.ar/ubicacion/" target="_blank" rel="noopener noreferrer">Mapa rutero y urbano ↗</a></article>
+            <article class="guide-info"><h3 class="guide-info__title">Estaciones de servicio</h3><p class="guide-info__copy">El mapa municipal señala puntos de combustible. Antes de recorrer distancias largas, confirmá disponibilidad y planificá las paradas.</p><a class="guide-info__link" href="https://municipalidadsantamaria.gob.ar/ubicacion/" target="_blank" rel="noopener noreferrer">Consultar mapa municipal ↗</a></article>
+            <article class="guide-info"><h3 class="guide-info__title">Teléfonos y contactos</h3><p class="guide-info__copy">Dirección de Turismo: (03838) 421870 · Calle Piriqui Pérez, Complejo El Mirador. Correo: secturismosantamariared@gmail.com. Confirmá los contactos de emergencia con fuentes oficiales locales.</p><a class="guide-info__link" href="https://municipalidadsantamaria.gob.ar/dir-de-turismo/" target="_blank" rel="noopener noreferrer">Fuente municipal y canales de contacto ↗</a></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-section guide-seasons" id="cuando-visitar" aria-labelledby="seasons-title">
+      <div class="guide-section__inner guide-seasons__layout">
+        <figure class="guide-photo guide-seasons__photo"><img src="../assets/img/guia-turistica/temporadas.jpg" alt="Paisaje de Santa María en distintas épocas del año" width="495" height="619" loading="lazy"></figure>
+        <div><p class="guide-kicker">05 · Elegí tu momento</p><h2 class="guide-title" id="seasons-title">Cuándo visitar Santa María</h2><div class="guide-copy"><p>El valle se puede recorrer durante todo el año. La experiencia cambia con la estación y con la agenda local; antes de definir las fechas, revisá el pronóstico y consultá si las actividades que te interesan requieren coordinación previa.</p></div>
+          <div class="season-list">
+            <article class="season"><h3 class="season__name">Verano</h3><p class="season__copy">Priorizá protección solar, agua y ropa cómoda. Consultá el estado de caminos y actividades antes de salir.</p></article>
+            <article class="season"><h3 class="season__name">Otoño</h3><p class="season__copy">Sumá capas livianas para adaptarte a los cambios de temperatura entre distintos momentos del día.</p></article>
+            <article class="season"><h3 class="season__name">Invierno</h3><p class="season__copy">Llevá abrigo y verificá el pronóstico y las condiciones de las rutas con anticipación.</p></article>
+            <article class="season"><h3 class="season__name">Primavera</h3><p class="season__copy">Elegí prendas versátiles y revisá la agenda local para acompañar tu visita con actividades disponibles.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-before" aria-labelledby="before-title">
+      <div class="guide-before__inner"><div><p class="guide-kicker">06 · Últimos preparativos</p><h2 class="guide-title" id="before-title">Antes de viajar</h2><p class="guide-before__copy">Unos minutos de planificación ayudan a disfrutar el recorrido con más tranquilidad. Guardá estas comprobaciones para hacerlas cerca de la fecha del viaje.</p><a class="guide-before__source" href="https://catamarcatransporte.gob.ar/" target="_blank" rel="noopener noreferrer">Portal oficial de Catamarca Transporte ↗</a></div><ul class="checklist"><li>Consultá el estado de las rutas antes de salir.</li><li>Verificá horarios y disponibilidad del transporte.</li><li>Reservá el alojamiento con anticipación.</li><li>Confirmá la disponibilidad de excursiones.</li><li>Prepará ropa adecuada para los cambios de temperatura.</li></ul></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner"><div class="site-footer__main"><div class="site-footer__identity"><a class="site-footer__brand" href="../index.html" aria-label="Destino Santa María, inicio"><img src="../assets/logo/logo-destino-horizontal-claro.png" alt="Destino Santa María"></a><p class="site-footer__name">Destino Santa María</p><p class="site-footer__tagline">Historias, paisajes y experiencias por descubrir</p></div><nav class="site-footer__navigation" aria-label="Explorá"><h2 class="site-footer__heading">Explorá</h2><ul><li><a href="../index.html">Inicio</a></li><li><a href="historia.html">Historia</a></li><li><a href="destinos.html">Destinos</a></li><li><a href="cultura.html">Cultura</a></li></ul></nav><nav class="site-footer__navigation" aria-label="Descubrí"><h2 class="site-footer__heading">Descubrí</h2><ul><li><a href="gastronomia.html">Gastronomía</a></li><li><a href="experiencias.html">Experiencias</a></li><li><a href="guia-turistica.html" aria-current="page">Guía turística</a></li><li><a href="galeria.html">Galería</a></li></ul></nav></div><div class="site-footer__bottom"><p>© 2026 Destino Santa María. Todos los derechos reservados</p><p>Santa María, Catamarca <span aria-hidden="true">·</span> Argentina</p></div></div>
+  </footer>
+</body>
+</html>
